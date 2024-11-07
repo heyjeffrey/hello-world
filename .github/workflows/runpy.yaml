@@ -26,3 +26,9 @@ jobs:
         run: |
             python3 app.py
 
+
+      - name: commit
+        run: |
+          git add -A
+          git commit -m "test output"
+          git push
