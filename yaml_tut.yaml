@@ -13,3 +13,4 @@ foo:
 bar:
   <<: *base # base anchor will be merged
   age: 20
+
