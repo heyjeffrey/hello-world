@@ -39,6 +39,7 @@ jobs:
           git push
 
   release:
+    if: ${{ github.run_number }} > 10
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -52,7 +53,7 @@ jobs:
         run: |
 
           #echo git rev-list --count --branches=/*
-          echon ${GITHUB_RUN_NUMBER}
+          echon "$GITHUB_RUN_NUMBER"
       ###
     #       git checkout --orphan temp-branch
     #       git add -A
