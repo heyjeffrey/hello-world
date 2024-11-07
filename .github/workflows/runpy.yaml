@@ -37,30 +37,3 @@ jobs:
           git add -A
           git commit -m "test output"
           git push
-
-  run-release:
-    if: ${{ github.run_number }} > 10
-    runs-on: ubuntu-latest
-    needs: run-build
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: config
-        run: |
-            git config user.name ${{vars.U_ID}}
-
-      - name: Restore state
-        run: |
-          echo ${{ github.run_number }}
-      ###
-    #       git checkout --orphan temp-branch
-    #       git add -A
-    #       git commit -m "Initial commit"
-    #       git branch -D main
-    #       git branch -m main
-    #       git push -f origin main
-
-    #   - name: Clean up
-    #     run: |
-    #       git fetch origin --prune
-      ###
