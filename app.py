@@ -1,7 +1,5 @@
-import os
+
+from lib.mylib import _make_file
 
 
-fpath = os.path.join(os.path.dirname(__file__), 'out.txt')
-
-with open(file=fpath, mode='wt') as fw:
-    print('hello world', file=fw)
+rt = _make_file()
