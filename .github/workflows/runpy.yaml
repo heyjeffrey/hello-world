@@ -24,6 +24,10 @@ jobs:
       # Runs a set of commands using the runners shell 
       - name: config
         run: |
+            git config user.name ${{vars.U_ID}}
+
+      - name: run
+        run: |
             python3 app.py
 
 
