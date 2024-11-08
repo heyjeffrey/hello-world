@@ -2,7 +2,6 @@ name: Python yml
 
 on:
     workflow_dispatch:  # Manually trigger the workflow
-    push:
 
 defaults:
   run:
