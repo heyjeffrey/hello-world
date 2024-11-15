@@ -55,7 +55,7 @@ jobs:
         with:
           path: 'pub'
           ref: 'main'
-          repository: 'heyjeffrey/world'
+          repository: 'https://github.com/heyjeffrey/world.git'
 
       - name: Copy common files to new repo
         shell: bash
