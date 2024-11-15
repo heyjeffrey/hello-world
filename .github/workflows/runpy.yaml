@@ -46,13 +46,6 @@ jobs:
         with:
             path: out
 
-      - name: Checkout dest
-        uses: actions/checkout@v4
-        with:
-          path: 'pub'
-          ref: 'main'
-          repository: 'heyjeffrey/world'
-
       - name: list files
         shell: bash
         run: |
