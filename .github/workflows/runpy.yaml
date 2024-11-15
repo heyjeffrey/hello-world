@@ -65,7 +65,7 @@ jobs:
 
       - name: Copy common files to new repo
         shell: bash
-        working-directory: pub        
+        working-directory: out
         run: |
             git remote add main https://github.com/heyjeffrey/world.git
             git pull
