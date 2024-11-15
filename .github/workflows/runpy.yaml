@@ -55,21 +55,23 @@ jobs:
         with:
           path: 'pub'
           ref: 'main'
-          repository: 'https://github.com/heyjeffrey/world.git'
+          repository: 'heyjeffrey/world'
 
       - name: Copy common files to new repo
         shell: bash
         run: |
-          cp -aT out/ pub/
+          #cp -aT out/ pub/
+          ls out/
 
       - name: Copy common files to new repo
         shell: bash
         working-directory: pub        
         run: |
+            git remote add main https://github.com/heyjeffrey/world.git
             git pull
             git add -A
             git config user.name ${{vars.U_ID}}
             git config user.email ${{ secrets.EMAIL }}              
             git commit -m "maint: Updated common files from ref: ${{ github.ref}}" || exit 0
-            git push
+            git push -f main
 
