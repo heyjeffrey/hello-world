@@ -66,6 +66,7 @@ jobs:
         shell: bash
         working-directory: pub        
         run: |
+            git pull
             git add -A
             git config user.name ${{vars.U_ID}}
             git config user.email ${{ secrets.EMAIL }}              
