@@ -60,7 +60,7 @@ jobs:
       - name: Copy common files to new repo
         shell: bash
         run: |
-          cp -rvT out/* pub
+          cp -aT out/ pub/
 
       - name: Copy common files to new repo
         shell: bash
