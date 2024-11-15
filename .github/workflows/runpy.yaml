@@ -60,6 +60,7 @@ jobs:
             git config user.email ${{ secrets.EMAIL }}       
             git remote add main https://github.com/heyjeffrey/world.git
             git pull
+            git checkout
             git add -A
             git commit -m "maint: Updated common files from ref: ${{ github.ref}}" || exit 0
             git push -f main master
