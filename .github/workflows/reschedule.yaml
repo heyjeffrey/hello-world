@@ -1,0 +1,30 @@
+name: Example Random Workflow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: 1 * * * *
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.COMMIT_TOKEN }}
+      - name: Randomize time for next run
+        run: |
+          chmod +x ./randomize-workflow.sh
+          ./randomize-workflow.sh          
+      - name: Commit & push changes
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add .github/workflows/reschedule.yml
+          git commit -m "Randomized GitHub Actions workflow [skip ci]"
+          git pull --rebase
+          git push   
