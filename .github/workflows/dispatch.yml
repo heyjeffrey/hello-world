@@ -1,0 +1,30 @@
+# .github/workflows/dispatch.yml
+
+name: Repository Dispatch Handler
+
+on:
+  repository_dispatch:
+    types: [deploy, test, build]
+
+jobs:
+  handle-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show event information
+        run: |
+          echo "Event type: ${{ github.event.action }}"
+          echo "Client payload: ${{ toJson(github.event.client_payload) }}"
+
+      - name: Handle deploy event
+        if: github.event.action == 'deploy'
+        run: |
+          echo "Deploying to ${{ github.event.client_payload.environment }}"
+          echo "Version: ${{ github.event.client_payload.version }}"
+
+      - name: Handle test event
+        if: github.event.action == 'test'
+        run: |
+          echo "Running tests for ${{ github.event.client_payload.branch }}"
