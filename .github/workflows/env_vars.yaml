@@ -4,7 +4,7 @@ on:
 jobs:
   Exch:
     runs-on: ubuntu-latest
-    # Map a step output to a job output
+    # read env var set in python
     steps:
-        - run: python write-env.py
+        - run: python write_env.py
         - run: echo ${{ env.MY_VAR }}
