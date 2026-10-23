@@ -9,6 +9,6 @@ jobs:
     # read env var set in python
     steps:
       - name: runpy  
-        run: python write_env.py
+        run: python app.py
       - name: get var
         run: echo ${{ env.MY_VAR }}

@@ -11,4 +11,4 @@ def set_git_env(name: str, value: str):
     return False
 
 
-set_git_env('MY_VAR', 'Env_Value')
+# set_git_env('MY_VAR', 'Env_Value')
