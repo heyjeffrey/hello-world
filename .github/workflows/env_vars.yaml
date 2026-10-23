@@ -1,3 +1,5 @@
+name: Xchange Environment Vars
+
 on:
     workflow_dispatch:  # Manually trigger the workflow
     
