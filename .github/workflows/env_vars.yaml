@@ -1,0 +1,10 @@
+on:
+    workflow_dispatch:  # Manually trigger the workflow
+    
+jobs:
+  Exch:
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    steps:
+        - run: python write-env.py
+        - run: echo ${{ env.MY_VAR }}
