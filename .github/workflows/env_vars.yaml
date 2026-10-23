@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     # read env var set in python
     steps:
+      - uses: actions/checkout@v5        
       - name: runpy  
         run: python app.py
       - name: get var
