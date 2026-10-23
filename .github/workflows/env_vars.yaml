@@ -8,5 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     # read env var set in python
     steps:
-        - run: python write_env.py
-        - run: echo ${{ env.MY_VAR }}
+      - name: runpy  
+        run: python write_env.py
+      - name: get var
+        run: echo ${{ env.MY_VAR }}
