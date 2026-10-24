@@ -5,8 +5,8 @@ from lib.write_env import set_git_env, get_run_id
 
 
 # set_git_env('MY_VAR', 'Env_Value')
-set_git_env('MY_VAR', '1')
+# set_git_env('MY_VAR', '1')
 
 
 _run_id = get_run_id()
-print(_run_id)
+print('GITHUB_RUN_ID:', _run_id)

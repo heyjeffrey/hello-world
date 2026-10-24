@@ -31,3 +31,31 @@ echo GITHUB_RUN_ID >> $GITHUB_ENV
 
 API_KEY = os.getenv('MY_API_KEY')
 """
+
+
+def cancel_workflow_run(token: str, repo: str, run_id: str = ''):
+    """
+    repo: owner/repo
+    """
+    import requests
+
+    run_id = run_id or os.getenv('GITHUB_RUN_ID', '')
+    if not run_id:
+        return False
+
+    # {repo_owner}/{repo_name}
+    url = f'https://api.github.com/repos/{repo}/actions/runs/{run_id}/cancel'
+
+    if token.startswith('ghp_'):
+        _auth = f"token {token}"
+    else:
+        _auth = f"Bearer {token}"
+
+    headers = {
+        'Authorization': _auth,
+        'Accept': 'application/vnd.github.v3+json',
+        'X-GitHub-Api-Version': '2026-03-10'
+    }
+
+    _r = requests.post(url, headers=headers)
+    return _r.status_code == 202
