@@ -2,7 +2,10 @@ name: Xchange Environment Vars
 
 on:
     workflow_dispatch:  # Manually trigger the workflow
-    
+
+env:    
+    MY_VAR_2: ${{ env.MY_VAR}}    
+
 jobs:
   Exch:
     runs-on: ubuntu-latest
@@ -12,10 +15,10 @@ jobs:
       - name: runpy  
         run: python app.py
       - name: get var
-        run: echo ${{ env.MY_VAR }}
+        run: echo ${{ env.MY_VAR_2 }}
 
       - name: Check env
-        if: ${{ env.MY_VAR == '1'}}
+        if: ${{ env.MY_VAR_2 == '1'}}
         run: |
           echo "Deploying ... "
 
