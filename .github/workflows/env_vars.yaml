@@ -13,3 +13,9 @@ jobs:
         run: python app.py
       - name: get var
         run: echo ${{ env.MY_VAR }}
+
+      - name: Check env
+        if: ${{ env.MY_VAR == '1'}}
+        run: |
+          echo "Deploying ... "
+
