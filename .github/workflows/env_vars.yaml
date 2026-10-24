@@ -9,16 +9,16 @@ jobs:
   Exch:
     runs-on: ubuntu-latest
     # read env var set in python
-
     steps:
       - uses: actions/checkout@v5        
       - name: runpy  
         run: python app.py
+        if: ${{ env.MY_VAR == '1'}}
       - name: get var
         run: echo ${{ env.MY_VAR }}
 
       - name: Check env
-        if: ${{ env.MY_VAR == '1'}}
+        if: ${{ !env.MY_VAR}}
         run: |
           echo "Deploying ... "
 
