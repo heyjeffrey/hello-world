@@ -3,22 +3,22 @@ name: Xchange Environment Vars
 on:
     workflow_dispatch:  # Manually trigger the workflow
 
-env:    
-    MY_VAR_2: ${{ env.MY_VAR}}    
+
 
 jobs:
   Exch:
     runs-on: ubuntu-latest
     # read env var set in python
+
     steps:
       - uses: actions/checkout@v5        
       - name: runpy  
         run: python app.py
       - name: get var
-        run: echo ${{ env.MY_VAR_2 }}
+        run: echo ${{ env.MY_VAR }}
 
       - name: Check env
-        if: ${{ env.MY_VAR_2 == '1'}}
+        if: ${{ env.MY_VAR == '1'}}
         run: |
           echo "Deploying ... "
 
