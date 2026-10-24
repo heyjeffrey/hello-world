@@ -15,7 +15,7 @@ jobs:
         env:
             ENV_VAR: 'ABC'
           
-        run: python app.py
+        run: python app.py -2
       - name: get var
         if: ${{ env.MY_VAR == '1'}}
         run: echo ${{ env.MY_VAR }}
