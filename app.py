@@ -1,3 +1,5 @@
+import os
+
 from lib.mylib import _make_file
 from lib.write_env import set_git_env, get_run_id
 
@@ -10,3 +12,7 @@ from lib.write_env import set_git_env, get_run_id
 
 _run_id = get_run_id()
 print('GITHUB_RUN_ID:', _run_id)
+
+
+ENV_VAR = os.getenv('ENV_VAR')
+print('read from git', ENV_VAR)

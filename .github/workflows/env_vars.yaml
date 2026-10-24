@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5        
       - name: runpy  
+        env:
+            ENV_VAR: 'ABC'
+          
         run: python app.py
       - name: get var
         if: ${{ env.MY_VAR == '1'}}
